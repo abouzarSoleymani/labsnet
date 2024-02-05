@@ -15,6 +15,7 @@ const config: Config = {
                 secondary: {
                     DEFAULT: '#bba74c'
                 },
+                darkBlur: '#324458',
                 darkGray: '#484848',
                 lightWhite: '#f8f8f8',
                 lightGray: '#717171',

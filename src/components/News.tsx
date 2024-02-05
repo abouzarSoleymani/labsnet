@@ -38,30 +38,34 @@ export const News = () => {
         }
     ]
     return (
-        <div className="flex flex-col container mx-auto my-20  ">
-            <h3 className="mb-2">
+        <div className="flex flex-col container mx-auto my-20 justify-center items-center">
+            <h3 className="font-bold text-darkBlur">
                 اخبار و رویدادها
             </h3>
-            <div className="flex flex-wrap justify-center items-center">
+            <div className="w-[250px] h-[2px] bg-lightGray my-4 mb-8"></div>
+            <div className="flex flex-wrap justify-center items-start">
                 {
                     news.map(item =>
                         (
-                            <div className="max-w-[250px] mx-10">
+                            <div className="max-w-[250px] mx-10 my-2">
                                 <Image
                                     src={item.image}
                                     width={250}
                                     height={250}
                                     sizes="500px"
+                                    className="rounded-md"
                                     alt="Picture of the author"
                                 />
-                                <div>{item.date}</div>
-                                <div>{item.desc}</div>
+                                <div className="text-lightGray text-sm py-2">{item.date}</div>
+                                <div className="text-darkGray">{item.desc}</div>
                             </div>
                         )
                     )
                 }
-
-
+            </div>
+            <div className="cursor-pointer border-b-2 hover:text-lightGray
+            transition ease-in-out delay-150  hover:-translate-x-1 hover:scale-100  duration-300">
+                مشاهده ادامه ...
             </div>
         </div>
     )

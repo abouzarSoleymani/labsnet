@@ -1,13 +1,14 @@
 export const MainDescription = () => {
     return (
-        <div className="main-description flex w-full justify-center items-center ">
+        <div className="main-description flex w-full justify-center items-center bg-gray-100 py-16 flex-wrap">
 
-            <div className="description w-[50%]">
-                <h3>
+            <div className="description  mx-40 2xl:w-[550px] xl:w-[400px]  lg:w-[400px] md:w-[300px] sm:w-full">
+                <h3 className="font-bold text-darkBlur">
                     شبکه آزمایشگاهی فناوری های راهبردی
 
                 </h3>
-                <p>
+                <div className="w-[250px] h-[2px] bg-lightGray my-4"></div>
+                <p className="text-darkGray">
                     شبکه آزمایشگاهی، با هدف افزایش بهره وری زیرساخت های آزمایشگاهی کشور، پلتفرم به اشتراک گذاری دستگاه
                     ها و
                     ارایه خدمات آزمایشگاهی و حمایت از توسعه کمی و بهبود کیفی خدمات آزمایشگاهی را راه اندازی کرده است.
@@ -24,8 +25,8 @@ export const MainDescription = () => {
                     ارایه می‌شود.
                 </p>
             </div>
-            <div className="video">
-                <video width="320" height="240" controls preload="none">
+            <div className="video 2xl:w-[550px] xl:w-[400px] lg:w-[400px] md:w-[300px]  sm:w-full">
+                <video width="100%" height="240" controls preload="none">
                     <source src="/video/video.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                 </video>

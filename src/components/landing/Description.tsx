@@ -1,7 +1,7 @@
 export const Description = () => {
     return (
         <div className='main-description flex w-full flex-wrap items-center justify-center bg-gray-100 py-16'>
-            <div className='description  mx-40 sm:w-full md:w-full  lg:w-[400px] xl:w-[400px] 2xl:w-[550px]'>
+            <div className='description  mx-10 md:mx-30 w-full md:w-[550px]'>
                 <h3 className='font-bold text-darkBlur'>
                     شبکه آزمایشگاهی فناوری های راهبردی
                 </h3>
@@ -19,7 +19,7 @@ export const Description = () => {
                     شناختی و مغز؛ صنایع دستی، مواد غذایی و غیره، ارایه می‌شود.
                 </p>
             </div>
-            <div className='video sm:w-[80%] md:w-[80%] lg:w-[600px] xl:w-[700px]  2xl:w-[550px]'>
+            <div className='video w-[80%] md:w-[550px] mt-10 lg:mt-0'>
                 <video width='100%' height='240' controls preload='none'>
                     <source src='/video/video.mp4' type='video/mp4'/>
                     Your browser does not support the video tag.

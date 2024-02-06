@@ -77,29 +77,25 @@ export const Carousel = () => {
         slidesToScroll: 1,
         pauseOnHover: false,
         pauseOnFocus: false,
+
         prevArrow: <Prev/>,
         nextArrow: <Next/>,
     };
     return (
-        <div className='my-10 flex  justify-center'>
-            <div className='sm:w-full  md:w-full  lg:w-full xl:w-[1280px] 2xl:w-[1536px]'>
-                <Slider {...settings}>
-                    {dataImageSlide?.map(slide => (
-                        <div
-                            key={slide.alt}
-                            className='relative flex  justify-center  overflow-hidden sm:w-full md:h-[350px] lg:h-[500px] 2xl:w-[1024px]'
-                        >
-                            <Image
-                                className='size-full   object-cover object-center'
-                                src={slide.image}
-                                layout='fill'
-                                fill
-                                alt={slide.alt}
-                            />
-                        </div>
-                    ))}
-                </Slider>
-            </div>
+        <div className='my-10 mx-auto lg:w-[80%] 2xl:w-[70%] '>
+
+            <Slider {...settings}>
+                {dataImageSlide?.map(slide => (
+
+                    <Image
+                        className='size-full   object-cover object-center'
+                        src={slide.image}
+                        width={500}
+                        height={500}
+                        alt={slide.alt}
+                    />
+                ))}
+            </Slider>
         </div>
     );
 };

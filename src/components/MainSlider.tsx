@@ -51,7 +51,7 @@ export const MainSlider = () => {
                     {dataImageSlide?.map((slide) => (
                         <div
                             key={slide.alt}
-                            className="2xl:w-[1024px] h-[240px] md:h-[350px] lg:h-[500px] overflow-hidden relative flex justify-center"
+                            className="2xl:w-[1024px] h-[240px] md:h-[350px] lg:h-[500px]  sm:w-full overflow-hidden relative flex justify-center"
                         >
                             <Image
                                 className="w-full   h-full object-cover object-center"

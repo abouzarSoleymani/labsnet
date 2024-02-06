@@ -2,7 +2,7 @@ import {Button} from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const Header = () => {
+export const AppHeader = () => {
     return (
         <div
             className='sticky top-0 z-10 flex h-24 w-full items-center justify-between bg-white

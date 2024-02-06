@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export const Footer = () => {
+export const AppFooter = () => {
     return (
         <div
             className='flex flex-col sm:flex-row w-full items-center justify-center sm:justify-between bg-footerGray py-3'>

@@ -66,7 +66,7 @@ const Next = (props: any) => {
     );
 };
 
-export const MainSlider = () => {
+export const Carousel = () => {
     const settings: Settings = {
         autoplaySpeed: 3500,
         fade: true,
@@ -93,6 +93,7 @@ export const MainSlider = () => {
                                 className='size-full   object-cover object-center'
                                 src={slide.image}
                                 layout='fill'
+                                fill
                                 alt={slide.alt}
                             />
                         </div>

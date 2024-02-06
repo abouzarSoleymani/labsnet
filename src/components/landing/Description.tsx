@@ -1,4 +1,4 @@
-export const MainDescription = () => {
+export const Description = () => {
     return (
         <div className='main-description flex w-full flex-wrap items-center justify-center bg-gray-100 py-16'>
             <div className='description  mx-40 sm:w-full md:w-full  lg:w-[400px] xl:w-[400px] 2xl:w-[550px]'>

@@ -4,7 +4,8 @@ export const Footer = () => {
     return (
         <div
             className='flex flex-col sm:flex-row w-full items-center justify-center sm:justify-between bg-footerGray py-3'>
-            <div className='text-[10px] sm:text-xs text-gray-600 mr-0 sm:mr-10 py-2 sm:py-0 order-1 sm:order-1'>
+            <div
+                className=' sm:w-1/4 text-[10px] sm:text-xs text-gray-600 mr-0 sm:mr-10 py-2 sm:py-0 order-1 sm:order-1'>
                 شبکه آزمایشگاهی فناوری های راهبردی
             </div>
 

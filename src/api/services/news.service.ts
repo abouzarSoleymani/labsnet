@@ -1,5 +1,5 @@
-import api from "@/api";
+import api from '@/api';
 
 export const getNewsList = async (): Promise<any> => {
-    return api.get<any>(`api/panel/type-category/category`);
-}
+  return api.get<any>(`api/panel/type-category/category`);
+};

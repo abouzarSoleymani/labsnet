@@ -1,13 +1,13 @@
-import {Description} from '@/components/landing/Description';
-import {Carousel} from '@/components/landing/Carousel';
-import {News} from '@/components/landing/News';
+import { Carousel } from '@/components/landing/Carousel';
+import { Description } from '@/components/landing/Description';
+import { News } from '@/components/landing/News';
 
 export const MainLayout = () => {
-    return (
-        <div className='main-container w-full'>
-            <Carousel/>
-            <Description/>
-            <News/>
-        </div>
-    );
+  return (
+    <div className='w-full'>
+      <Carousel />
+      <Description />
+      <News />
+    </div>
+  );
 };

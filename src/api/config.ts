@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import type { AxiosRequestConfig } from 'axios';
 
 const headers: Record<string, string | boolean> = {
   Accept: 'application/json',

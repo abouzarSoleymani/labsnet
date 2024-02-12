@@ -1,11 +1,5 @@
-import {ComponentType, ReactElement, ReactNode} from "react";
-import {NextPage} from "next";
+import { ReactNode } from 'react';
 
 type ChildContainerProps = {
-    children: ReactNode;
+  children: ReactNode;
 };
-
-export type Page<P = {}> = NextPage<P> & {
-    getLayout?: (page: ReactElement) => ReactNode
-    layout?: ComponentType
-}

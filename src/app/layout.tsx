@@ -9,9 +9,8 @@ import type {Metadata} from 'next';
 import {iranSans} from '@/config/localFont';
 
 import theme from '../theme';
-import {AppProps} from "next/app";
-import {ChildContainerProps, Page} from "@/types/types";
-import {Layout} from "@/components/layout/Layout";
+import {ChildContainerProps} from '@/types/types';
+import {ProvidersReactQuery} from "@/app/providersReactQuery";
 
 export const metadata: Metadata = {
     title: 'شبکه آزمایشگاهی فناوری های راهبردی',
@@ -22,39 +21,18 @@ export const metadata: Metadata = {
     },
 };
 
-type LayoutProps = ChildContainerProps & AppProps & {
-    Component: Page
-}
-
-export default function RootLayout(props: LayoutProps) {
-    const {Component, pageProps, children} = props;
-    const getLayout = Component?.getLayout ?? (page => page)
-    if (Component?.getLayout) {
-        return (
-            <html lang='en'>
-            <body className={`${iranSans.variable}`}>
+export default function RootLayout({
+                                       children,
+                                   }: Readonly<ChildContainerProps>) {
+    return (
+        <html lang='en'>
+        <body className={`${iranSans.variable}`}>
+        <ProvidersReactQuery>
             <AppRouterCacheProvider>
-                <ThemeProvider theme={theme}>
-                    {getLayout(<Component {...pageProps} />)}
-                </ThemeProvider>
+                <ThemeProvider theme={theme}>{children}</ThemeProvider>
             </AppRouterCacheProvider>
-            </body>
-            </html>
-        );
-    } else {
-        return (
-            <html lang='en'>
-            <body className={`${iranSans.variable}`}>
-            <AppRouterCacheProvider>
-                <ThemeProvider theme={theme}>
-                    <Layout>
-                        {children}
-                    </Layout>
-                </ThemeProvider>
-            </AppRouterCacheProvider>
-            </body>
-            </html>
-        )
-    }
-
+        </ProvidersReactQuery>
+        </body>
+        </html>
+    );
 }

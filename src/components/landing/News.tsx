@@ -1,46 +1,55 @@
 import Image from 'next/image';
+import Link from "next/link";
 
 export const News = () => {
     const news = [
         {
+            id: 1,
             image: '/images/news/1.jpg',
             date: '۱۵ بهمن ۱۴۰۲',
-            desc: 'کارگاه آموزشی اجرای Real-time Pcr برگزار می‌شود',
+            title: 'کارگاه آموزشی اجرای Real-time Pcr برگزار می‌شود',
         },
         {
+            id: 2,
             image: '/images/news/2.jpg',
             date: '۱۵ بهمن ۱۴۰۲',
-            desc: 'کارشناسان برتر- تجربه و توانمندی کارشناسان، ستون اصلی پژوهش‌های کارآمد است',
+            title: 'کارشناسان برتر- تجربه و توانمندی کارشناسان، ستون اصلی پژوهش‌های کارآمد است',
         },
         {
+            id: 3,
             image: '/images/news/3.jpg',
             date: '۱۴ بهمن ۱۴۰۲',
-            desc: 'شیوه نامه مسابقه ایمنی در آزمایشگاه نانو منتشر شد',
+            title: 'شیوه نامه مسابقه ایمنی در آزمایشگاه نانو منتشر شد',
         },
         {
+            id: 4,
             image: '/images/news/4.jpg',
             date: '۱۴ بهمن ۱۴۰۲',
-            desc: 'عرضه خدمات آزمایشگاهی کارآمد در حوزه «غذا»، «محیط زیست» و «کشاورزی»',
+            title: 'عرضه خدمات آزمایشگاهی کارآمد در حوزه «غذا»، «محیط زیست» و «کشاورزی»',
         },
         {
+            id: 5,
             image: '/images/news/5.jpg',
             date: '۱۲ بهمن ۱۴۰۲',
-            desc: 'تصویب ۱۶۵مین استاندارد ملی فناوری نانو با عنوان « فناوری نانو - نانولوله‌های کربنی چنددیواره - تعیین میزان ناخالصی کربن با آنالیز گرماوزن سنجی »',
+            title: 'تصویب ۱۶۵مین استاندارد ملی فناوری نانو با عنوان « فناوری نانو - نانولوله‌های کربنی چنددیواره - تعیین میزان ناخالصی کربن با آنالیز گرماوزن سنجی »',
         },
         {
+            id: 6,
             image: '/images/news/6.jpg',
             date: '۱۲ بهمن ۱۴۰۲',
-            desc: 'برگزاری کارگاه آموزشی قائده تصمیم‌گیری و بیانیه انطباق بر مبنای استاندارد 17025',
+            title: 'برگزاری کارگاه آموزشی قائده تصمیم‌گیری و بیانیه انطباق بر مبنای استاندارد 17025',
         },
         {
+            id: 7,
             image: '/images/news/7.jpg',
             date: '۱۱ بهمن ۱۴۰۲',
-            desc: 'دوره آموزشی عدم قطعیت در اندازه‌گیری برگزار می‌شود',
+            title: 'دوره آموزشی عدم قطعیت در اندازه‌گیری برگزار می‌شود',
         },
         {
+            id: 8,
             image: '/images/news/8.jpg',
             date: '۱۱ بهمن ۱۴۰۲',
-            desc: 'دانشگاه تبریز: تولید نانوسامانه جدید دارورسانی برای درمان موثرتر سرطان',
+            title: 'دانشگاه تبریز: تولید نانوسامانه جدید دارورسانی برای درمان موثرتر سرطان',
         },
     ];
     return (
@@ -50,17 +59,21 @@ export const News = () => {
             <div className='flex flex-wrap items-start justify-center'>
                 {news.map(item => (
                     <div className='mx-10 my-2 max-w-[250px]' key={item.image}>
-                        <Image
-                            key={item.image}
-                            src={item.image}
-                            width={250}
-                            height={250}
-                            sizes='500px'
-                            className='rounded-md'
-                            alt='Picture of the author'
-                        />
-                        <div className='py-2 text-sm text-lightGray'>{item.date}</div>
-                        <div className='text-darkGray'>{item.desc}</div>
+
+                        <Link href={`/news/${item.id}/${item.title.replace(/\s+/g, '-')}`}>
+                            <Image
+                                key={item.image}
+                                src={item.image}
+                                width={250}
+                                height={250}
+                                sizes='500px'
+                                className='rounded-md'
+                                alt='Picture of the author'
+                            />
+                            <div className='py-2 text-sm text-lightGray'>{item.date}</div>
+                            <div className='text-darkGray'>{item.title}</div>
+
+                        </Link>
                     </div>
                 ))}
             </div>

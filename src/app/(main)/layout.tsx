@@ -9,9 +9,11 @@ export default function PrimaryLayout({
 }: Readonly<ChildContainerProps>) {
   return (
     <>
-      <AppHeader />
-      {children}
-      <AppFooter />
+      <div className='flex min-h-screen flex-col'>
+        <AppHeader />
+        <main className='flex-1'>{children}</main>
+        <AppFooter />
+      </div>
     </>
   );
 }

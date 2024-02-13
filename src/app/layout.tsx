@@ -27,11 +27,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${iranSans.variable}`}>
-        <ProvidersReactQuery>
-          <AppRouterCacheProvider>
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
-          </AppRouterCacheProvider>
-        </ProvidersReactQuery>
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <ProvidersReactQuery>{children}</ProvidersReactQuery>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

@@ -2,15 +2,15 @@ import './globals.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { ThemeProvider } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from 'next';
 
 import { ProvidersReactQuery } from '@/app/providersReactQuery';
 import { iranSans } from '@/config/localFont';
+import RTL from '@/theme/RTL';
+import ThemeProviderApp from '@/theme/ThemeProvider';
 import type { ChildContainerProps } from '@/types/types';
-
-import theme from '../theme';
 
 export const metadata: Metadata = {
   title: 'شبکه آزمایشگاهی فناوری های راهبردی',
@@ -28,9 +28,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${iranSans.variable}`}>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
-            <ProvidersReactQuery>{children}</ProvidersReactQuery>
-          </ThemeProvider>
+          <ThemeProviderApp>
+            <RTL>
+              <CssBaseline />
+              <ProvidersReactQuery>{children}</ProvidersReactQuery>
+            </RTL>
+          </ThemeProviderApp>
         </AppRouterCacheProvider>
       </body>
     </html>

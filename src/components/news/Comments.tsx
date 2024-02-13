@@ -6,7 +6,7 @@ export const Comments = () => {
   return (
     <div className='flex w-full flex-col border-2 border-gray-300 bg-white py-5'>
       <div className=' relative pr-4 pt-6 font-bold text-green-900'>
-        <div className='absolute right-0 h-[20px] w-[5px] bg-green-900'></div>
+        <div className='absolute right-0 h-[20px] w-[5px] bg-green-900' />
         <span>ارسال نظر</span>
       </div>
       <div className='flex flex-col px-10 pt-5'>

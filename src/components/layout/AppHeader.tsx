@@ -22,7 +22,9 @@ export const AppHeader = () => {
         </Link>
       </div>
       <div>
-        <Button variant='contained'>ورود / ثبت نام</Button>
+        <Button href='https://tech.pido.co.ir/login' variant='contained'>
+          ورود / ثبت نام
+        </Button>
       </div>
     </div>
   );

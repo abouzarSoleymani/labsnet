@@ -6,7 +6,7 @@ export const getNewsList = async (): Promise<any> => {
       new Promise(resolve => {
         setTimeout(() => {
           resolve(value);
-        }, 1000);
+        }, 2000);
       })
   );
 };

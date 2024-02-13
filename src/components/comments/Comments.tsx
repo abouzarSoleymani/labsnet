@@ -4,16 +4,21 @@ import Image from 'next/image';
 
 export const Comments = () => {
   return (
-    <div className='flex w-full flex-col border-2 border-gray-300 bg-white p-10'>
-      <div className='text-green-900'>ارسال نظر</div>
-      <div className='mt-5 flex flex-col'>
+    <div className='flex w-full flex-col border-2 border-gray-300 bg-white'>
+      <div className='text relative pr-4 pt-10 font-bold text-green-900'>
+        <div className='absolute right-0 h-[20px] w-[5px] bg-green-900'></div>
+        ارسال نظر
+      </div>
+      <div className='flex flex-col px-10 pt-5'>
         <div className='flex w-full flex-row'>
           <TextField
+            size='small'
             className='!mx-2 w-[40%]'
             label='نـــام'
             variant='outlined'
           />
           <TextField
+            size='small'
             className='!mx-2 w-[40%]'
             label='ایمیل'
             variant='outlined'
@@ -21,6 +26,7 @@ export const Comments = () => {
         </div>
         <div className='mt-5 flex flex-row'>
           <TextField
+            size='small'
             className='!mx-2 w-full'
             label='نظر شما'
             multiline

@@ -17,7 +17,7 @@ export default function NewsDetail({
   //   refetch().then();
   // }, [params]);
   return (
-    <div className='container mx-auto mt-5 flex w-full flex-col bg-gray-100 pt-10 '>
+    <div className='container mx-auto my-5 flex w-full flex-col bg-gray-100 pt-10 '>
       <div className='pb-5'>
         <div className='relative mx-10 mt-5 flex justify-between bg-white p-8'>
           <div className='flex flex-col'>
@@ -90,7 +90,6 @@ export default function NewsDetail({
       <div className='pt-0'>
         <Comments />
       </div>
-      ;
     </div>
   );
 }

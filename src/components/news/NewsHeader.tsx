@@ -1,24 +1,28 @@
 import Rating from '@mui/material/Rating';
 import Image from 'next/image';
 
-export const NewsHeader = ({ rating, setRating }: any) => {
+export const NewsHeader = ({ headerData, rating, setRating }: any) => {
   return (
     <div className='relative mx-10 mt-5 flex justify-between bg-white p-8'>
       <div className='flex flex-col'>
         <div className='flex items-center justify-center text-darkGray'>
           <div className='ml-2 size-[10px] bg-gray-700' />
-          کارگاه جامع آموزشی کار با حیوانات آزمایشگاهی برگزار می‌شود
+          {headerData?.title}
         </div>
-        <div className='text-darkGray'>(۱۴۰۲/۱۱/۱۷)</div>
+        <div className='text-darkGray'>({headerData?.date})</div>
         <div className='my-2 flex'>
-          <div className='m-1 bg-gray-200 p-2 text-xs'>شبکه آزمایشگاهی</div>
-          <div className='m-1 bg-gray-200 p-2 text-xs'>آزمایشگاه</div>
+          {headerData?.tags &&
+            headerData?.tags.map((tag: any) => (
+              <div key={tag} className='m-1 bg-gray-200 p-2 text-xs'>
+                {tag}
+              </div>
+            ))}
         </div>
       </div>
       <div className=''>
         <Image
           className='cursor-pointer'
-          src='/images/news/3.jpg'
+          src={headerData?.image}
           width={250}
           height={350}
           alt=''
@@ -32,7 +36,10 @@ export const NewsHeader = ({ rating, setRating }: any) => {
             setRating(newValue);
           }}
         />
-        <div className='bg-gray-400 p-2'>تعداد بازدید : ۲۸۹</div>
+        <div className='bg-gray-400 p-2'>
+          <span>تعداد بازدید :</span>
+          <span>{headerData?.visits}</span>
+        </div>
       </div>
     </div>
   );

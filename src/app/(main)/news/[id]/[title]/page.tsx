@@ -21,15 +21,20 @@ export default function NewsDetail({
   const { data, refetch } = useGetNewsItemQuery(+id);
   useEffect(() => {
     refetch().then();
-    console.log(data);
   }, [params]);
   return (
     <div className='container mx-auto my-5 flex w-full flex-col bg-gray-100 pt-10 '>
       <div className='pb-5'>
-        <NewsHeader rating={value} setRating={setValue} />
-        <NewsBody />
+        {data && (
+          <NewsHeader
+            headerData={data[0]}
+            rating={value}
+            setRating={setValue}
+          />
+        )}
+        {data && <NewsBody content={data[0]?.content} />}
       </div>
-      <NewsKeyWords />
+      {data && <NewsKeyWords keywords={data[0].keywords} />}
       <div className='pt-0'>
         <Comments />
       </div>

@@ -3,6 +3,8 @@
 import Image from 'next/image';
 
 import { Comments } from '@/components/comments/Comments';
+import Rating from '@mui/material/Rating';
+import { useState } from 'react';
 
 export default function NewsDetail({
   params,
@@ -12,6 +14,7 @@ export default function NewsDetail({
     title: string;
   };
 }) {
+  const [value, setValue] = useState<any>();
   // const { id } = params;
   // const { data, refetch } = useGetNewsItemQuery(+id);
   // useEffect(() => {
@@ -41,8 +44,15 @@ export default function NewsDetail({
               alt=''
             />
           </div>
-          <div className='absolute -bottom-3 bg-gray-400 p-2 text-sm text-white'>
-            تعداد بازدید : ۲۸۹
+          <div className='absolute -bottom-3 flex flex-col text-sm text-white'>
+            <Rating
+              name='simple-controlled'
+              value={value}
+              onChange={(event, newValue) => {
+                setValue(newValue);
+              }}
+            />
+            <div className='bg-gray-400 p-2'>تعداد بازدید : ۲۸۹</div>
           </div>
         </div>
         <div className='mt-7 flex flex-col px-10'>

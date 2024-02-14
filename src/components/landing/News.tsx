@@ -14,7 +14,7 @@ export const News = () => {
       <div className='my-4 mb-8 h-[2px] w-[250px] bg-lightGray' />
       <div className='flex flex-wrap items-start justify-center'>
         {isLoading
-          ? Array.from(Array(8)).map((item: any) => (
+          ? Array.from(Array(8).keys()).map((item: any) => (
               <div className='mx-10 my-2 max-w-[250px]' key={item}>
                 <NewsSkeleton />
               </div>

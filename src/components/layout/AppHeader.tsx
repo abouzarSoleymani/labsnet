@@ -1,8 +1,11 @@
 import { Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 export const AppHeader = () => {
+  const t = useTranslations('LayoutHeader');
+
   return (
     <div
       className='sticky top-0 z-10 flex h-24 w-full items-center justify-between bg-white
@@ -23,7 +26,7 @@ export const AppHeader = () => {
       </div>
       <div>
         <Button href='https://tech.pido.co.ir/login' variant='contained'>
-          ورود / ثبت نام
+          {t('loginBtn')}
         </Button>
       </div>
     </div>

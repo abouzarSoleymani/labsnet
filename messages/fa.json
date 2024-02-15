@@ -1,0 +1,9 @@
+{
+  "NotFoundPage": {
+    "pageNotFound": "صفحه مورد نظر یافت نشد !!!",
+    "backToHome": "بازگشت به صفحه اصلی"
+  },
+  "LayoutHeader": {
+    "loginBtn": " ورود / ثبت نام"
+  }
+}

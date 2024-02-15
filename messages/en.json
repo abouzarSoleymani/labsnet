@@ -1,0 +1,9 @@
+{
+  "NotFoundPage": {
+    "pageNotFound": "page not found",
+    "backToHome": "back to home"
+  },
+  "LayoutHeader": {
+    "loginBtn": "login/register"
+  }
+}

@@ -7,17 +7,17 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import type { Metadata } from 'next';
 
 import { ProvidersReactQuery } from '@/app/providersReactQuery';
+import { siteConfig } from '@/config/appConfig';
 import { iranSans } from '@/config/localFont';
 import RTL from '@/theme/RTL';
 import ThemeProviderApp from '@/theme/ThemeProvider';
 import type { ChildContainerProps } from '@/types/types';
 
 export const metadata: Metadata = {
-  title: 'شبکه آزمایشگاهی فناوری های راهبردی',
-  description:
-    'شبکه آزمایشگاهی فناوری های راهبردی، دسترسی سریع به خدمات، تجهیزات و دستگاه‌های آزمایشگاه‌های کشور؛ مقالات تخصصی؛ دوره‌های آموزشی و تخفیف خدمات در باشگاه ...',
+  title: siteConfig.title,
+  description: siteConfig.description,
   icons: {
-    icon: '/favicon.ico',
+    icon: siteConfig.icons.icon,
   },
 };
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 import { useGetNewsItemQuery } from '@/api/queries/news.query';
@@ -19,7 +20,7 @@ export default function NewsDetail({
   };
 }) {
   const [value, setValue] = useState<any>();
-  // const t = useTranslations();
+  const t = useTranslations('breadcrumb');
 
   const { id, title } = params;
   const { updateBreadcrumbs, clearBreadcrumbs } = useBreadcrumbStore();
@@ -28,11 +29,11 @@ export default function NewsDetail({
     refetch().then();
     updateBreadcrumbs([
       {
-        title: 'خانه',
+        title: t('home'),
         path: '/',
       },
       {
-        title: 'اخبار',
+        title: t('news'),
         path: '',
       },
       {

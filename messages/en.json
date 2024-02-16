@@ -9,5 +9,15 @@
   "breadcrumb": {
     "home": "Home",
     "news": "News"
+  },
+  "validations": {
+    "required": "{field} is required",
+    "valid": "Enter a valid {field}"
+  },
+  "commentForm": {
+    "name": "Name",
+    "email": "Email",
+    "comment": "Comment",
+    "captcha": "Captcha"
   }
 }

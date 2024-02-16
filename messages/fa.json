@@ -9,5 +9,15 @@
   "breadcrumb": {
     "home": "خانه",
     "news": "اخبار"
+  },
+  "validations": {
+    "required": "{field} اجباری است",
+    "valid": "{field} درست وارد کنید"
+  },
+  "commentForm": {
+    "name": "نام",
+    "email": "ایمیل",
+    "comment": "نظر",
+    "captcha": "کد امنیتی"
   }
 }

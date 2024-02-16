@@ -5,5 +5,9 @@
   },
   "LayoutHeader": {
     "loginBtn": "login/register"
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "news": "News"
   }
 }

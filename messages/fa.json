@@ -5,5 +5,9 @@
   },
   "LayoutHeader": {
     "loginBtn": " ورود / ثبت نام"
+  },
+  "breadcrumb": {
+    "home": "خانه",
+    "news": "اخبار"
   }
 }

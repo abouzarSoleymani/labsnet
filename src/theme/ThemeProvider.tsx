@@ -1,10 +1,8 @@
 import { ThemeProvider } from '@mui/material';
 import React from 'react';
 
-import Theme from './theme';
-
-const ThemeProviderApp = ({ children }: any) => {
-  return <ThemeProvider theme={Theme}>{children}</ThemeProvider>;
+const MUIThemeProvider = ({ children, theme }: any) => {
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export default ThemeProviderApp;
+export default MUIThemeProvider;

@@ -9,8 +9,10 @@ import type { Metadata } from 'next';
 import { ProvidersReactQuery } from '@/app/providersReactQuery';
 import { siteConfig } from '@/config/appConfig';
 import { iranSans } from '@/config/localFont';
+import { NextThemeProvider } from '@/theme/NextThemeProvide';
 import RTL from '@/theme/RTL';
-import ThemeProviderApp from '@/theme/ThemeProvider';
+import { lightTheme } from '@/theme/theme';
+import MUIThemeProvider from '@/theme/ThemeProvider';
 import type { ChildContainerProps } from '@/types/types';
 
 export const metadata: Metadata = {
@@ -26,15 +28,23 @@ export default function LocaleLayout({
   params,
 }: Readonly<ChildContainerProps>) {
   return (
-    <html lang={params.locale}>
+    <html lang={params.locale} suppressHydrationWarning>
       <body className={`${iranSans.variable}`}>
         <AppRouterCacheProvider>
-          <ThemeProviderApp>
+          <MUIThemeProvider theme={lightTheme}>
             <RTL>
               <CssBaseline />
-              <ProvidersReactQuery>{children}</ProvidersReactQuery>
+              <ProvidersReactQuery>
+                <NextThemeProvider
+                  attribute='class'
+                  defaultTheme='system'
+                  enableSystem
+                >
+                  {children}
+                </NextThemeProvider>
+              </ProvidersReactQuery>
             </RTL>
-          </ThemeProviderApp>
+          </MUIThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

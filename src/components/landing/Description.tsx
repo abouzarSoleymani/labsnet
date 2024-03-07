@@ -5,7 +5,7 @@ export const Description = () => {
     <section className='flex size-full items-center justify-center bg-lightGray py-32'>
       <div className='container w-full '>
         <div className='flex w-full flex-wrap items-center justify-between'>
-          <div className='mb-8 flex w-full flex-col items-start justify-center bg-white px-14 py-16 drop-shadow-lg sm:mb-0 sm:w-[48%]'>
+          <div className='mb-8 flex w-full flex-col items-start justify-center bg-white px-14 py-10 drop-shadow-lg sm:mb-0 sm:w-[48%]'>
             <Image
               src='/images/description/lab-illustration.png'
               alt=''
@@ -42,7 +42,7 @@ export const Description = () => {
               />
             </div>
           </div>
-          <div className='mb-8 flex  w-full flex-col items-start justify-center bg-white  px-14 py-16 drop-shadow-lg sm:mb-0 sm:w-[48%]'>
+          <div className='mb-8 flex  w-full flex-col items-start justify-center bg-white  px-14 py-10 drop-shadow-lg sm:mb-0 sm:w-[48%]'>
             <Image
               src='/images/description/person-illustration.png'
               alt=''
@@ -50,7 +50,7 @@ export const Description = () => {
               height={105}
               style={{ width: '105px ', height: '105px' }}
             />
-            <div className='text-sm font-light'>لورم ایپسوم</div>
+            <div className='py-1 text-sm font-light'>لورم ایپسوم</div>
             <div className='py-2 font-extrabold'>لورم ایپسوم متن ساختگی</div>
             <div className='pb-10 text-base'>
               شبکه آزمایشگاهی، با هدف افزایش بهره وری زیرساخت های آزمایشگاهی

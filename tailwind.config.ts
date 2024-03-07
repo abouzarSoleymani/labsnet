@@ -11,7 +11,12 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#38894e',
+          green: {
+            DEFAULT: '#67ac99',
+            900: '#67ac99',
+            800: '#67AC98',
+            400: '#81d7be',
+          },
         },
         secondary: {
           DEFAULT: '#bba74c',
@@ -19,7 +24,8 @@ const config: Config = {
         darkBlur: '#324458',
         darkGray: '#484848',
         lightWhite: '#f8f8f8',
-        lightGray: '#717171',
+        lightGray: '#f2f2f2',
+        gray_1: '#666666',
         footerGray: '#ededed',
       },
       fontFamily: {
@@ -29,6 +35,15 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--gradient-stops))',
+      },
+    },
+    container: {
+      screens: {
+        sm: '600px',
+        md: '728px',
+        lg: '984px',
+        xl: '1100px',
+        '2xl': '1100px',
       },
     },
   },

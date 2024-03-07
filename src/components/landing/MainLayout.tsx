@@ -1,13 +1,17 @@
-import { Carousel } from '@/components/landing/Carousel';
 import { Description } from '@/components/landing/Description';
-import { News } from '@/components/landing/News';
+import { Events } from '@/components/landing/Events';
+import { Features } from '@/components/landing/Features';
+import { Slider } from '@/components/landing/Slider';
+import { Workshops } from '@/components/landing/Workshops';
 
 export const MainLayout = () => {
   return (
     <div className='w-full'>
-      <Carousel />
+      <Slider />
       <Description />
-      <News />
+      <Features />
+      <Workshops />
+      <Events />
     </div>
   );
 };

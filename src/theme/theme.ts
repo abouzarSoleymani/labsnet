@@ -17,10 +17,10 @@ const lightTheme = createTheme({
   direction: 'rtl',
   palette: {
     primary: {
-      main: '#38894e',
+      main: '#67ac99',
     },
     secondary: {
-      main: '#38894e',
+      main: '#67ac99',
     },
     error: {
       main: '#ff0000',

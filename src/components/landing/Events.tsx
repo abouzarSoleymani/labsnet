@@ -4,7 +4,7 @@ export const Events = () => {
   return (
     <section className=' size-full w-full items-center justify-center bg-lightGray py-20'>
       <div className='container mx-auto flex w-full flex-col items-center justify-between'>
-        <div className='text-primary-green w-full py-4 text-right text-xl font-extrabold'>
+        <div className='text-primary-green w-full py-4 pr-6 text-right text-xl font-extrabold sm:pr-0'>
           لورم ایپسوم متن ساختگی
         </div>
         <div className='flex w-full flex-wrap items-center justify-between'>

@@ -4,7 +4,7 @@ export const Features = () => {
   return (
     <section className=' size-full w-full items-center justify-center py-20'>
       <div className='container mx-auto flex flex-wrap '>
-        <div className='mb-6 flex w-full flex-col  items-start justify-start sm:mb-0 sm:w-[50%]'>
+        <div className='mb-6 flex w-full flex-col  items-start justify-start px-6 sm:mb-0 sm:w-[50%] sm:px-0'>
           <div className='text-primary-green-800 py-2 text-lg font-extrabold '>
             خدمات و حمایت ها
           </div>
@@ -31,7 +31,7 @@ export const Features = () => {
           </ul>
         </div>
 
-        <div className=' mb-6 flex w-full flex-col  sm:mb-0 sm:w-[50%]'>
+        <div className=' mb-6 flex w-full flex-col  px-6 sm:mb-0 sm:w-[50%] sm:px-0'>
           <div className='text-primary-green-800 py-2 text-lg font-extrabold '>
             لورم ایپسوم
           </div>

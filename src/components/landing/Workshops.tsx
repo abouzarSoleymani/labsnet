@@ -16,6 +16,7 @@ export const Workshops = () => {
             <Image
               width={100}
               height={250}
+              sizes='100vw'
               style={{ width: '100%', height: '380px' }}
               src='/images/workshops/microbiology.jpg'
               alt=''

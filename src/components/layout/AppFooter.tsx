@@ -60,6 +60,9 @@ export const AppFooter = () => {
                 <li className='hover:text-primary-green cursor-pointer py-1'>
                   پست الکترونیکی : info @ labsnet.ir
                 </li>
+                <li className='hover:text-primary-green cursor-pointer py-1'>
+                  فکس : 3500 6310 021
+                </li>
               </ul>
             </div>
           </div>

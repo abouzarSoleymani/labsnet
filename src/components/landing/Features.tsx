@@ -28,6 +28,18 @@ export const Features = () => {
               <div className='bg-primary-green-400 size-[14px]' />
               <div className='text-gray_1 px-2'>شبکه سازی توانمندی ها</div>
             </li>
+            <li className='flex items-center py-2'>
+              <div className='bg-primary-green-400 size-[14px]' />
+              <div className='text-gray_1 px-2'>
+                حمایت از خرید تجهیزات آزمایشگاهی داخلی و خارجی
+              </div>
+            </li>
+            <li className='flex items-center py-2'>
+              <div className='bg-primary-green-400 size-[14px]' />
+              <div className='text-gray_1 px-2'>
+                کمک به تکمیل توانمندی‌های آزمایشگاهی مراکز
+              </div>
+            </li>
           </ul>
         </div>
 

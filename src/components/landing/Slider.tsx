@@ -56,11 +56,11 @@ export const Slider = () => {
             key={slide?.id}
             className='mx-8 my-0 mb-8 w-full bg-white px-10 py-12 drop-shadow-lg  sm:mx-0 sm:mb-0 sm:w-[31%] '
           >
-            <div className='text-primary-green font-extrabold'>
+            <div className='font-extrabold text-primary-green'>
               {slide?.title}
             </div>
             <div className='py-2'>{slide?.description}</div>
-            <div className='text-primary-green flex items-center justify-start pt-8'>
+            <div className='flex items-center justify-start pt-8 text-primary-green'>
               {slide?.button}
             </div>
           </div>

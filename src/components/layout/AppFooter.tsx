@@ -5,7 +5,7 @@ export const AppFooter = () => {
     <footer>
       <section className=' size-full w-full items-center justify-center '>
         <div className='container mx-auto flex  flex-col '>
-          <div className='text-gray_1 flex w-full flex-wrap items-start  justify-around py-6 '>
+          <div className='flex w-full flex-wrap items-start justify-around  py-6 text-gray_1 '>
             <div className=' flex w-full px-5 sm:w-[30%]'>
               <Image
                 src='/images/logo/f-1.png'
@@ -31,19 +31,19 @@ export const AppFooter = () => {
             <div className=' w-full px-8 text-base sm:w-[30%]'>
               <ul>
                 <li className='py-2 font-bold'>لینک های مهم</li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   کارگروه‌های تخصصی
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   خدمات پردازش موازی
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   فصلنامه دانش آزمایشگاهی ایران
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   استاندارد ISO/IEC17025
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   حمایت‌های قانون دانش بنیان
                 </li>
               </ul>
@@ -51,16 +51,16 @@ export const AppFooter = () => {
             <div className=' w-full px-8 text-base sm:w-[30%]'>
               <ul>
                 <li className='py-2 font-bold'>ارتباط با ما</li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   شماره‌ تماس : 66941085-021
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   پیامک : 3500 6310 021
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   پست الکترونیکی : info @ labsnet.ir
                 </li>
-                <li className='hover:text-primary-green cursor-pointer py-1'>
+                <li className='cursor-pointer py-1 hover:text-primary-green'>
                   فکس : 3500 6310 021
                 </li>
               </ul>

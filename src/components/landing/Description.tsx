@@ -30,7 +30,7 @@ export const Description = () => {
               های بنیادی، مهندسی بافت؛ حوزه های علوم شناختی و مغز؛ صنایع دستی،
               مواد غذایی و غیره، ارایه می‌شود.
             </div>
-            <div className='text-primary-green flex items-center justify-start '>
+            <div className='flex items-center justify-start text-primary-green '>
               <div> شبکه آزمایشگاهی فناوری های راهبردی</div>
               <Image
                 src='/images/icons/arrow-right.svg'
@@ -65,7 +65,7 @@ export const Description = () => {
               های بنیادی، مهندسی بافت؛ حوزه های علوم شناختی و مغز؛ صنایع دستی،
               مواد غذایی و غیره، ارایه می‌شود.
             </div>
-            <div className='text-primary-green flex items-center justify-start '>
+            <div className='flex items-center justify-start text-primary-green '>
               <div> لورم ایپسوم متن ساختگی</div>
               <Image
                 src='/images/icons/arrow-right.svg'
@@ -79,8 +79,8 @@ export const Description = () => {
           </div>
         </div>
 
-        <div className='text-primary-green flex flex-col items-center justify-center px-10  pt-12  sm:px-36 sm:pt-20'>
-          <div className='border-primary-green-800 w-[160px] border-b-8 border-solid ' />
+        <div className='flex flex-col items-center justify-center px-10 pt-12  text-primary-green  sm:px-36 sm:pt-20'>
+          <div className='w-[160px] border-b-8 border-solid border-primary-green-800 ' />
           <div className='py-8 text-center text-2xl'>
             شبکه آزمایشگاهی، با هدف افزایش بهره وری زیرساخت های آزمایشگاهی کشور،
             پلتفرم به اشتراک گذاری دستگاه ها و ارایه خدمات آزمایشگاهی و حمایت از

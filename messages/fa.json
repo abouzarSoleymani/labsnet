@@ -4,7 +4,8 @@
     "backToHome": "بازگشت به صفحه اصلی"
   },
   "LayoutHeader": {
-    "loginBtn": " ورود / ثبت نام"
+    "loginBtn": " ورود",
+    "registerBtn": "  ثبت نام"
   },
   "breadcrumb": {
     "home": "خانه",

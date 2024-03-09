@@ -8,6 +8,8 @@ import type {
 } from 'axios';
 import axios from 'axios';
 
+import { generateApiKey } from '@/utils/helper';
+
 // We can use the following function to inject the JWT token through an interceptor
 const injectToken = (
   config: InternalAxiosRequestConfig
@@ -17,6 +19,11 @@ const injectToken = (
 
     if (token != null) {
       (config.headers as AxiosHeaders).set('Authorization', `Bearer ${token}`);
+    } else {
+      (config.headers as AxiosHeaders).set(
+        'Authorization',
+        `apikey ${generateApiKey()}`
+      );
     }
     return config;
   } catch (error: any) {

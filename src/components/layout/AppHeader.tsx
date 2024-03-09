@@ -65,7 +65,7 @@ export const AppHeader = () => {
             {t('registerBtn')}
           </Button>
           <Button
-            href='https://tech.pido.co.ir/login'
+            href='/login'
             className='!min-w-[120px] !text-white'
             variant='contained'
           >

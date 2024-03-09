@@ -15,11 +15,10 @@
     "required": "{field} اجباری است",
     "valid": "{field} درست وارد کنید"
   },
-  "commentForm": {
-    "name": "نام",
-    "email": "ایمیل",
-    "comment": "نظر",
-    "captcha": "کد امنیتی"
+  "loginForm": {
+    "username": "نام کاربری",
+    "password": "رمز عبور",
+    "captchaAnswer": "کد امنیتی"
   },
   "siteConfig": {
     "title": "شبکه آزمایشگاهی فناوری های راهبردی",

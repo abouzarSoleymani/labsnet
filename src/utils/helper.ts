@@ -37,3 +37,26 @@ export const generateApiKey = () => {
 
   return `${password1}|${password2}`;
 };
+
+export function isServer() {
+  return typeof window !== 'undefined';
+}
+
+export function getFromLocalStorage(key: string): string | null {
+  if (!isServer()) {
+    return window.localStorage.getItem(key);
+  }
+  return null;
+}
+
+export function setInLocalStorage(key: string, value: any): void {
+  if (!isServer()) {
+    window.localStorage.setItem(key, value);
+  }
+}
+
+export function clearLocalStorage(): void {
+  if (!isServer()) {
+    window.localStorage.clear();
+  }
+}

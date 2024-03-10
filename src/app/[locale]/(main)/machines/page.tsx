@@ -1,106 +1,99 @@
 'use client';
 
-import { Pagination } from '@mui/material';
+import { Button, Pagination } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { ChangeEvent } from 'react';
 import * as React from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 import { useFilterCombinedQuery } from '@/api/queries/filter.query';
-
-const tags = [
-  {
-    id: 1,
-    title: '#tag',
-  },
-  {
-    id: 2,
-    title: '#tagsdfsdffd',
-  },
-  {
-    id: 3,
-    title: '#tagsdfsdffd',
-  },
-  {
-    id: 4,
-    title: '#tags01',
-  },
-  {
-    id: 5,
-    title: '#tags02',
-  },
-  {
-    id: 6,
-    title: '#tags03',
-  },
-];
-
-const machines = [
-  {
-    id: 1,
-    image: '/images/machines/1.png',
-    title: 'styrocut',
-    subTitle: 'Styrocut 1',
-  },
-  {
-    id: 2,
-    image: '/images/machines/2.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 2',
-  },
-  {
-    id: 3,
-    image: '/images/machines/3.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 3',
-  },
-  {
-    id: 4,
-    image: '/images/machines/4.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 4',
-  },
-  {
-    id: 5,
-    image: '/images/machines/1.png',
-    title: 'styrocut',
-    subTitle: 'Styrocut 1',
-  },
-  {
-    id: 6,
-    image: '/images/machines/2.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 2',
-  },
-  {
-    id: 7,
-    image: '/images/machines/3.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 3',
-  },
-  {
-    id: 8,
-    image: '/images/machines/4.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 4',
-  },
-  {
-    id: 9,
-    image: '/images/machines/1.png',
-    title: 'styrocut',
-    subTitle: 'Styrocut 1',
-  },
-  {
-    id: 10,
-    image: '/images/machines/2.jpg',
-    title: 'styrocut',
-    subTitle: 'Styrocut 2',
-  },
-];
+import { useGetTechnicalAssistantQuery } from '@/api/queries/technical-assistant.query';
+import { FilterTag } from '@/components/machine/filter-tag/FilterTag';
 
 export default function Machine() {
+  const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
+  const { data: technicalAssistantData, refetch } =
+    useGetTechnicalAssistantQuery(params, page);
+  const [activity, technology, usageService] = useFilterCombinedQuery();
+  const [activityItem, setActivityItem] = useState([]);
+  const [technologyItem, setTechnologyItem] = useState([]);
+  const [usageServiceItem, setUsageServiceItem] = useState([]);
 
-  const combinedData = useFilterCombinedQuery();
+  const onSelectActivityItem = (item: any) => {
+    const found = activityItem.find(
+      (f: any) => f.fieldActivityId === item.fieldActivityId
+    );
+    if (found) {
+      setActivityItem(
+        activityItem.filter(
+          (f: any) => f.fieldActivityId !== item.fieldActivityId
+        )
+      );
+    } else {
+      setActivityItem((prev: any) => [...prev, item]);
+    }
+  };
+  const onSelectTechnologyItem = (item: any) => {
+    const found = technologyItem.find(
+      (f: any) => f.technologyFieldId === item.technologyFieldId
+    );
+    if (found) {
+      setTechnologyItem(
+        technologyItem.filter(
+          (f: any) => f.technologyFieldId !== item.technologyFieldId
+        )
+      );
+    } else {
+      setTechnologyItem((prev: any) => [...prev, item]);
+    }
+  };
+  const onSelectUsageServiceItem = (item: any) => {
+    const found = usageServiceItem.find((f: any) => f.usageId === item.usageId);
+    if (found) {
+      setUsageServiceItem(
+        usageServiceItem.filter((f: any) => f.usageId !== item.usageId)
+      );
+    } else {
+      setUsageServiceItem((prev: any) => [...prev, item]);
+    }
+  };
+  const onSearch = () => {
+    const paramFields = [];
+    if (activityItem && activityItem.length) {
+      paramFields.push({
+        'activityField[]': activityItem.map(
+          (item: any) => item.fieldActivityId
+        ),
+      });
+    }
+    if (technologyItem && technologyItem.length) {
+      paramFields.push({
+        'technologyFieldId[]': technologyItem.map(
+          (item: any) => item.technologyFieldId
+        ),
+      });
+    }
+    if (usageServiceItem && usageServiceItem.length) {
+      paramFields.push({
+        'usageId[]': usageServiceItem.map((item: any) => item.usageId),
+      });
+    }
+    const reducedObject = paramFields.reduce((result, current) => {
+      return Object.assign(result, current);
+    }, {});
+    setParams(reducedObject);
+    refetch();
+  };
+
+  useEffect(() => {
+    refetch();
+  }, [page]);
+
+  useEffect(() => {
+    refetch();
+  }, [params]);
 
   const handleChangePagination = (
     event: ChangeEvent<unknown>,
@@ -111,44 +104,81 @@ export default function Machine() {
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between py-8'>
-      <div className='flex size-full container  flex-wrap items-start justify-center sm:h-[300px] '>
-        <div className='flex size-full flex-col items-center justify-start border-[1px] border-gray-100  p-4 w-full'>
-          <div className='text-xl font-bold pb-4'>فیلتر</div>
-          <div className='flex flex-wrap'>
-            {combinedData.map((tag: any) => {
+      <div className='flex size-full flex-row'>
+        <div className='flex size-full w-[20%] flex-col flex-wrap  items-center justify-center border-[1px] border-gray-100  '>
+          <div className='flex size-full flex-col items-center justify-start p-4'>
+            <FilterTag
+              title='زمینه فعالیت'
+              items={activity?.data}
+              selectedItems={activityItem}
+              onSelectItem={(item: any) => onSelectActivityItem(item)}
+              fieldValue='fieldActivityId'
+              fieldName='name'
+            />
+          </div>
+          <div className='flex size-full flex-col items-center justify-start   p-4 '>
+            <FilterTag
+              title='حوزه فناوری'
+              items={technology?.data}
+              selectedItems={technologyItem}
+              onSelectItem={(item: any) => onSelectTechnologyItem(item)}
+              fieldValue='technologyFieldId'
+              fieldName='name'
+            />
+          </div>
+          <div className='flex size-full flex-col items-center justify-start   p-4 '>
+            <FilterTag
+              title='کاربرد تجهیزات'
+              selectedItems={usageServiceItem}
+              onSelectItem={(item: any) => onSelectUsageServiceItem(item)}
+              items={usageService?.data}
+              fieldValue='usageId'
+              fieldName='name'
+            />
+          </div>
+          <Button
+            className='!my-4 !mt-8 !min-w-[120px] !text-white'
+            onClick={() => onSearch()}
+            variant='contained'
+          >
+            جستجو
+          </Button>
+        </div>
+
+        <div className=' mx-auto w-[80%]  p-4'>
+          <div className='flex w-full flex-wrap'>
+            {technicalAssistantData?.data?.map((item: any) => {
               return (
                 <div
-                  key={tag?.id}
-                  className='m-1 bg-gray-100 px-2 py-3 text-sm text-primary-green-800'
+                  key={item?.equipmentId}
+                  className='mx-4  my-3 flex w-full  flex-col items-start justify-start bg-white p-2 drop-shadow-lg sm:w-[40%] md:w-[15%] '
                 >
-                  #${tag?.name}
+                  <Link
+                    className='flex h-full flex-col justify-between'
+                    href={`/machines/${item?.equipmentId}/${item?.serviceId}`}
+                  >
+                    <Image
+                      src={item?.equipmentImage}
+                      alt=''
+                      width={0}
+                      height={0}
+                      sizes='100vw'
+                      style={{ width: '100%', height: 'auto' }}
+                    />
+                    <div className='flex flex-col px-2 py-3'>
+                      <div className='text-sm font-bold'>
+                        {item?.equipmentTitle}
+                      </div>
+                      <div className='pt-2 text-xs font-light'>
+                        {item?.equipmentTitle}
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               );
             })}
           </div>
         </div>
-      </div>
-
-      <div className='container flex flex-wrap p-4'>
-        {machines.map((item: any) => {
-          return (
-            <div
-              key={item?.id}
-              className='mx-4 my-3 flex w-full  flex-col items-start justify-start bg-white p-2 drop-shadow-lg sm:w-[40%] md:w-[20%] '
-            >
-              <Image
-                src={item?.image}
-                alt=''
-                width={0}
-                height={0}
-                sizes='100vw'
-                style={{ width: '100%', height: 'auto' }}
-              />
-              <div className='text-sm font-bold'>{item?.title}</div>
-              <div className='text-sm font-light'>{item?.subTitle}</div>
-            </div>
-          );
-        })}
       </div>
       <div className='flex w-full items-center justify-center'>
         <Pagination count={10} page={page} onChange={handleChangePagination} />

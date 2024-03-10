@@ -39,47 +39,23 @@ export const useFilterCombinedQuery = () => {
       queryKey: [QUERY_FIELD_ACTIVITY_KEY],
       queryFn: getFieldActivities,
       staleTime: 20000,
-      select: (res: any) =>
-        res.data.map(item => {
-          return {
-            id: item.fieldActivityId,
-            name: item.name,
-          };
-        }),
+      select: (res: any) => res.data,
     },
     {
       queryKey: [QUERY_TECHNOLOGY_FIELD_KEY],
       queryFn: getTechnologyField,
       staleTime: 20000,
-      select: (res: any) =>
-        res.data.map(item => {
-          return {
-            id: item.technologyFieldId,
-            name: item.name,
-          };
-        }),
+      select: (res: any) => res.data,
     },
     {
       queryKey: [QUERY_USAGE_SERVICE_KEY],
       queryFn: getUsageService,
       staleTime: 20000,
-      select: (res: any) =>
-        res.data.map(item => {
-          return {
-            id: item.usageId,
-            name: item.name,
-          };
-        }),
+      select: (res: any) => res.data,
     },
   ];
 
-  const queryResults = useQueries({
+  return useQueries({
     queries,
   });
-
-  if (queryResults.every(result => result.isSuccess)) {
-    return queryResults.reduce((acc: any, result: any) => {
-      return [...acc, ...result.data];
-    }, []);
-  }
 };

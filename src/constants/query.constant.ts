@@ -3,3 +3,7 @@ export const QUERY_TECHNOLOGY_FIELD_KEY = 'technologyField';
 export const QUERY_USAGE_SERVICE_KEY = 'usageService';
 export const QUERY_CAPTCHA_KEY = 'captcha';
 export const QUERY_LOGIN_KEY = 'login';
+export const QUERY_TECHNICAL_ASSISTANT_KEY = 'technicalAssistant';
+export const QUERY_EQUIPMENT_DETAIL_KEY = 'EquipmentDetail';
+export const QUERY_EQUIPMENT_FIELD_ACTIVITY_KEY = 'EquipmentFieldActivity';
+export const QUERY_SERVICE_DETAIL_KEY = 'ServiceDetail';

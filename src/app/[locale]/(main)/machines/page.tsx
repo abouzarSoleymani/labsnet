@@ -111,9 +111,9 @@ export default function Machine() {
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between py-8'>
-      <div className='flex size-full  flex-wrap items-start justify-center sm:h-[300px] '>
+      <div className='flex size-full container  flex-wrap items-start justify-center sm:h-[300px] '>
         <div className='flex size-full flex-col items-center justify-start border-[1px] border-gray-100  p-4 w-full'>
-          <div className='text-xl font-bold'>Tags</div>
+          <div className='text-xl font-bold pb-4'>فیلتر</div>
           <div className='flex flex-wrap'>
             {combinedData.map((tag: any) => {
               return (

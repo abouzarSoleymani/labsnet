@@ -1,6 +1,6 @@
 'use client';
 
-import { useQuery } from '@tanstack/react-query';
+import { useQueries, useQuery } from '@tanstack/react-query';
 
 import {
   getFieldActivities,
@@ -32,3 +32,54 @@ export const useGetUsageServiceQuery = () =>
     queryFn: () => getUsageService().then(res => res.data),
     staleTime: 20000,
   });
+
+export const useFilterCombinedQuery = () => {
+  const queries = [
+    {
+      queryKey: [QUERY_FIELD_ACTIVITY_KEY],
+      queryFn: getFieldActivities,
+      staleTime: 20000,
+      select: (res: any) =>
+        res.data.map(item => {
+          return {
+            id: item.fieldActivityId,
+            name: item.name,
+          };
+        }),
+    },
+    {
+      queryKey: [QUERY_TECHNOLOGY_FIELD_KEY],
+      queryFn: getTechnologyField,
+      staleTime: 20000,
+      select: (res: any) =>
+        res.data.map(item => {
+          return {
+            id: item.technologyFieldId,
+            name: item.name,
+          };
+        }),
+    },
+    {
+      queryKey: [QUERY_USAGE_SERVICE_KEY],
+      queryFn: getUsageService,
+      staleTime: 20000,
+      select: (res: any) =>
+        res.data.map(item => {
+          return {
+            id: item.usageId,
+            name: item.name,
+          };
+        }),
+    },
+  ];
+
+  const queryResults = useQueries({
+    queries,
+  });
+
+  if (queryResults.every(result => result.isSuccess)) {
+    return queryResults.reduce((acc: any, result: any) => {
+      return [...acc, ...result.data];
+    }, []);
+  }
+};

@@ -39,7 +39,7 @@ export const generateApiKey = () => {
 };
 
 export function isServer() {
-  return typeof window !== 'undefined';
+  return typeof window === 'undefined';
 }
 
 export function getFromLocalStorage(key: string): string | null {

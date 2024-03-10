@@ -4,30 +4,19 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import * as React from 'react';
 import { useEffect } from 'react';
 import * as yup from 'yup';
 
 import { useGetCaptchaQuery, useLogin } from '@/api/queries/login.query';
-import { setInLocalStorage } from '@/utils/helper';
 
 export default function Login() {
   const { data: captcha, refetch } = useGetCaptchaQuery();
   const TValidations = useTranslations('validations');
   const TLoginForm = useTranslations('loginForm');
-  const loginResponse = res => {
-    if (res) {
-      if (res.token) {
-        setInLocalStorage('token', res.token);
-        router.push('/');
-      }
-    }
-  };
 
-  const { mutate: mutateLogin, isError, error } = useLogin(loginResponse);
-  const router = useRouter();
+  const { mutate: mutateLogin, isError, error } = useLogin();
 
   const validationSchema = yup.object({
     username: yup

@@ -14,6 +14,7 @@ import { FilterTag } from '@/components/machine/filter-tag/FilterTag';
 export default function Machine() {
   const [params, setParams] = useState({});
   const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
   const { data: technicalAssistantData, refetch } =
     useGetTechnicalAssistantQuery(params, page);
   const [activity, technology, usageService] = useFilterCombinedQuery();
@@ -32,6 +33,7 @@ export default function Machine() {
         )
       );
     } else {
+      // @ts-ignore
       setActivityItem((prev: any) => [...prev, item]);
     }
   };
@@ -46,6 +48,7 @@ export default function Machine() {
         )
       );
     } else {
+      // @ts-ignore
       setTechnologyItem((prev: any) => [...prev, item]);
     }
   };
@@ -56,6 +59,7 @@ export default function Machine() {
         usageServiceItem.filter((f: any) => f.usageId !== item.usageId)
       );
     } else {
+      // @ts-ignore
       setUsageServiceItem((prev: any) => [...prev, item]);
     }
   };
@@ -95,6 +99,13 @@ export default function Machine() {
     refetch();
   }, [params]);
 
+  useEffect(() => {
+    if (technicalAssistantData && technicalAssistantData.count) {
+      // eslint-disable-next-line no-unsafe-optional-chaining
+      setPageCount(Math.ceil(technicalAssistantData?.count / 10));
+    }
+  }, [technicalAssistantData]);
+
   const handleChangePagination = (
     event: ChangeEvent<unknown>,
     value: number
@@ -104,8 +115,8 @@ export default function Machine() {
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between py-8'>
-      <div className='flex size-full flex-row'>
-        <div className='flex size-full w-[20%] flex-col flex-wrap  items-center justify-center border-[1px] border-gray-100  '>
+      <div className='flex size-full flex-col md:flex-row'>
+        <div className='flex size-full w-full flex-col flex-wrap items-center  justify-center border-[1px] border-gray-100 md:w-[20%]  '>
           <div className='flex size-full flex-col items-center justify-start p-4'>
             <FilterTag
               title='زمینه فعالیت'
@@ -145,7 +156,7 @@ export default function Machine() {
           </Button>
         </div>
 
-        <div className=' mx-auto w-[80%]  p-4'>
+        <div className=' mx-auto w-full  p-4  md:w-[80%]'>
           <div className='flex w-full flex-wrap'>
             {technicalAssistantData?.data?.map((item: any) => {
               return (
@@ -154,7 +165,7 @@ export default function Machine() {
                   className='mx-4  my-3 flex w-full  flex-col items-start justify-start bg-white p-2 drop-shadow-lg sm:w-[40%] md:w-[15%] '
                 >
                   <Link
-                    className='flex h-full flex-col justify-between'
+                    className='flex size-full flex-col justify-between'
                     href={`/machines/${item?.equipmentId}/${item?.serviceId}`}
                   >
                     <Image
@@ -181,7 +192,11 @@ export default function Machine() {
         </div>
       </div>
       <div className='flex w-full items-center justify-center'>
-        <Pagination count={10} page={page} onChange={handleChangePagination} />
+        <Pagination
+          count={pageCount}
+          page={page}
+          onChange={handleChangePagination}
+        />
       </div>
     </main>
   );

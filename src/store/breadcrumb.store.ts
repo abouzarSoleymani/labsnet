@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
-export interface Breadcrumb {
+export interface BreadcrumbStore {
   title: string;
   path: string;
 }
 
 interface BreadcrumbState {
-  breadcrumbs: Breadcrumb[];
-  updateBreadcrumbs: (newBreadcrumbs: Breadcrumb[]) => void;
+  breadcrumbs: BreadcrumbStore[];
+  updateBreadcrumbs: (newBreadcrumbs: BreadcrumbStore[]) => void;
   clearBreadcrumbs: () => void;
 }
 

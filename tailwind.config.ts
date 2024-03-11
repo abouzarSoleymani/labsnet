@@ -39,7 +39,7 @@ const config: Config = {
     },
     container: {
       screens: {
-        xs: '320px',
+        xs: '400px',
         sm: '600px',
         md: '728px',
         lg: '984px',

@@ -2,8 +2,8 @@
 
 import Link from '@mui/material/Link';
 
-import type { Breadcrumb } from '@/store/breadcrumb';
-import { useBreadcrumbStore } from '@/store/breadcrumb';
+import type { BreadcrumbStore } from '@/store/breadcrumb.store';
+import { useBreadcrumbStore } from '@/store/breadcrumb.store';
 
 export const Breadcrumbs = () => {
   const { breadcrumbs } = useBreadcrumbStore();
@@ -11,7 +11,11 @@ export const Breadcrumbs = () => {
     <div className='container mx-auto py-4 pb-0'>
       <ul>
         {breadcrumbs.map(
-          (breadcrumb: Breadcrumb, index: number, array: Breadcrumb[]) => (
+          (
+            breadcrumb: BreadcrumbStore,
+            index: number,
+            array: BreadcrumbStore[]
+          ) => (
             <li
               key={breadcrumb.title}
               className="inline text-sm font-thin  before:px-2 before:content-['/'] first:before:content-['']"

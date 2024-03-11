@@ -16,7 +16,7 @@ export default function Login() {
   const TValidations = useTranslations('validations');
   const TLoginForm = useTranslations('loginForm');
 
-  const { mutate: mutateLogin, isError, error } = useLogin();
+  const { mutate: mutateLogin, isError } = useLogin();
 
   const validationSchema = yup.object({
     username: yup
@@ -77,7 +77,6 @@ export default function Login() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.username && Boolean(formik.errors.username)}
-              helperText={formik.touched.username && formik.errors.username}
             />
             <TextField
               id='outlined-basic'
@@ -88,7 +87,6 @@ export default function Login() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               error={formik.touched.password && Boolean(formik.errors.password)}
-              helperText={formik.touched.password && formik.errors.password}
             />
             <div className='flex items-center justify-center'>
               <ReplayIcon
@@ -109,9 +107,6 @@ export default function Login() {
               error={
                 formik.touched.captchaAnswer &&
                 Boolean(formik.errors.captchaAnswer)
-              }
-              helperText={
-                formik.touched.captchaAnswer && formik.errors.captchaAnswer
               }
               variant='outlined'
             />

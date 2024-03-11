@@ -34,8 +34,8 @@ export default function MachineDetail({
 
   return (
     <main className='flex min-h-screen flex-col items-center justify-between py-10'>
-      <div className='container flex size-full justify-between'>
-        <div className='flex w-[70%] flex-col p-10 shadow-2xl'>
+      <div className='container flex size-full w-full flex-col justify-between md:flex-row'>
+        <div className='flex w-full  flex-col p-10 shadow-2xl md:w-[70%]'>
           <div className='py-4 font-extrabold'>{equipmentDetail?.title}</div>
           <div className='flex items-center justify-center'>
             <Image
@@ -71,15 +71,18 @@ export default function MachineDetail({
             <li className='flex items-center justify-start  py-2'>
               <div className='size-[15px] bg-gray-400' />
               <span className='px-2 text-gray_1'>زمینه فعالیت :</span>
-              {equipmentDetail?.activityField?.map(item => (
-                <span className='mx-1 cursor-pointer rounded-3xl bg-primary-green-400  p-2 text-xs text-white'>
+              {equipmentDetail?.activityField?.map((item: any) => (
+                <span
+                  key={item?.name}
+                  className='mx-1 cursor-pointer rounded-3xl bg-primary-green-400  p-2 text-xs text-white'
+                >
                   {item?.name}
                 </span>
               ))}
             </li>
           </ul>
         </div>
-        <div className='flex w-[25%] flex-col'>
+        <div className='mt-10 flex w-full flex-col md:mt-0 md:w-[25%]'>
           <div className='font-bold'>کارگاه های مشابه</div>
           <div className='my-3 w-full border-b-2 border-gray-500' />
           <ul>

@@ -1,11 +1,11 @@
 'use client';
 
 import { useMutation, useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/navigation';
 
 import { getCaptcha, login } from '@/api/services/login.service';
 import { QUERY_CAPTCHA_KEY, QUERY_LOGIN_KEY } from '@/constants/query.constant';
-import { setInLocalStorage } from '@/utils/helper';
-import { useRouter } from 'next/navigation';
+import useAuthStore from '@/store/auth.store';
 
 export const useGetCaptchaQuery = () =>
   useQuery({
@@ -15,6 +15,7 @@ export const useGetCaptchaQuery = () =>
   });
 
 export const useLogin = () => {
+  const { setLogin } = useAuthStore();
   const router = useRouter();
 
   return useMutation({
@@ -24,7 +25,7 @@ export const useLogin = () => {
         return res.data;
       }),
     onSuccess: data => {
-      setInLocalStorage('token', data.token);
+      setLogin(data.token);
       router.push('/');
     },
   });

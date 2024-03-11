@@ -62,6 +62,8 @@
         // Avoid conflict rule between Eslint and Prettier
         "@typescript-eslint/consistent-type-imports": "error",
         // Ensure `import type` is used when it's necessary
+        "no-underscore-dangle": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
         "no-restricted-syntax": [
           "error",
           "ForInStatement",

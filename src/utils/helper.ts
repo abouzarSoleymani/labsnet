@@ -19,7 +19,7 @@ const getApiKeyPassword = (date: any, key: any) => {
 
 export { decrypt, encrypt };
 export const generateApiKey = () => {
-  const minute = momentJalali().format('mm');
+  const minute: any = momentJalali().format('mm');
 
   let minute1: any = minute - (minute % 2);
   const remainder = 2 - (minute % 2);

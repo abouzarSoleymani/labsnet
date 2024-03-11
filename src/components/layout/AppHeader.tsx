@@ -1,18 +1,11 @@
 import SearchIcon from '@mui/icons-material/Search';
-import {
-  Button,
-  ButtonGroup,
-  IconButton,
-  InputBase,
-  Paper,
-} from '@mui/material';
+import { Button, IconButton, InputBase, Paper } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+
+import HeaderMenu from '@/components/layout/HeaderMenu';
 
 export const AppHeader = () => {
-  const t = useTranslations('LayoutHeader');
-
   return (
     <div
       className='flex h-24 w-full items-center justify-between bg-white
@@ -56,22 +49,7 @@ export const AppHeader = () => {
         <Button href='/machines' variant='outlined' className='!ml-5'>
           تجهیزات
         </Button>
-        <ButtonGroup variant='outlined' aria-label='Loading button group'>
-          <Button
-            href='https://tech.pido.co.ir/pre-registration'
-            className='!min-w-[150px] '
-            variant='outlined'
-          >
-            {t('registerBtn')}
-          </Button>
-          <Button
-            href='/login'
-            className='!min-w-[120px] !text-white'
-            variant='contained'
-          >
-            {t('loginBtn')}
-          </Button>
-        </ButtonGroup>
+        <HeaderMenu />
       </div>
     </div>
   );
